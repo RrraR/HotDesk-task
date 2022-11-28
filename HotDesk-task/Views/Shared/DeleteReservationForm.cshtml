@@ -1,0 +1,53 @@
+﻿@model SingleReservationViewModel
+@{
+    ViewData["Title"] = "Delete reservation";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+
+    <div class="text-center">
+
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>Floor</th>
+                <th>Room </th>
+                <th>Table</th>
+                <th>Time from</th>
+                <th>Time to</th>
+                <th>Equipment on the table</th>
+            </tr>
+
+            <tr>
+                <td>@Model.Reservation.Workplace.Floor</td>
+                <td>@Model.Reservation.Workplace.Room</td>
+                <td>@Model.Reservation.Workplace.TableNumber</td>
+                <td>@Model.Reservation.TimeFrom</td>
+                <td>@Model.Reservation.TimeTo</td>
+                <td>
+                    @foreach (var equipment in Model.Reservation.Workplace.EquipmentOnWorkplace)
+                    {
+                        @equipment.Key
+                        @equipment.Value
+                        <br>
+                    }
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm("DeleteReservation", "Reservation", FormMethod.Post))
+        {
+            <div>
+                <input type="text" value="@Model.Reservation.ReservationId" name="ReservationId" hidden>
+                <input type="submit" value="Delete" placeholder="Delete"/>
+            </div>
+        }
+    </div>
+</div>
+</body>
+</html>

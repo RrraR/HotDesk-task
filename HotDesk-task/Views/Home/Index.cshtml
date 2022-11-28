@@ -1,0 +1,24 @@
+﻿@model LogInViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div>Hi! Please enter your name below</div>
+    <br>
+    @using (Html.BeginForm("LogIn", "Reservation", FormMethod.Post))
+    {
+        <div class="editor-field">
+            <input asp-for="FirstName" placeholder="First name" max="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+        </div>
+        <div class="editor-field">
+            <input asp-for="LastName" placeholder="Last name" max="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+        </div>
+        <br>
+        @Html.ValidationMessageFor(model => model.LastName)
+        <div>
+            <input type="submit" value="Log in"/>
+        </div>
+    }
+
+</div>

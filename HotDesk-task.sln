@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDesk-task", "HotDesk-task\HotDesk-task.csproj", "{8111D0C3-CEC6-4D9B-86BE-786028C38237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotDesk-task.Data", "HotDesk-task.Data\HotDesk-task.Data.csproj", "{593CFBFB-105D-44E7-A0CB-257CE6DC8ABD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8111D0C3-CEC6-4D9B-86BE-786028C38237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8111D0C3-CEC6-4D9B-86BE-786028C38237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8111D0C3-CEC6-4D9B-86BE-786028C38237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8111D0C3-CEC6-4D9B-86BE-786028C38237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593CFBFB-105D-44E7-A0CB-257CE6DC8ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593CFBFB-105D-44E7-A0CB-257CE6DC8ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593CFBFB-105D-44E7-A0CB-257CE6DC8ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593CFBFB-105D-44E7-A0CB-257CE6DC8ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

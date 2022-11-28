@@ -1,0 +1,49 @@
+﻿@model CurrentReservationsViewModel
+@{
+    ViewData["Title"] = "Reservations";
+}
+
+<div class="text-center">
+    @using (Html.BeginForm("GetAvailableWorkplacesList", "Reservation", FormMethod.Post))
+    {
+        <p>
+            <input type="submit" value="Create new reservation"/>
+        </p>
+    }
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>Floor</th>
+            <th>Room </th>
+            <th>Table</th>
+            <th>Time from</th>
+            <th>Time to</th>
+            <th>Equipment on the table</th>
+        </tr>
+        @foreach (var d in Model.Reservations)
+        {
+            <tr>
+                <td>@d.Workplace.Floor</td>
+                <td>@d.Workplace.Room</td>
+                <td>@d.Workplace.TableNumber</td>
+                <td>@d.TimeFrom</td>
+                <td>@d.TimeTo</td>
+                <td>
+                    @foreach (var equipment in d.Workplace.EquipmentOnWorkplace)
+                    {
+                        @equipment.Key
+                        @equipment.Value
+                        <br>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("GetDeleteReservationForm", "Reservation", FormMethod.Post))
+                    {
+                        <input type="text" value="@d.ReservationId" name="ReservationId" hidden>
+                        <input type="submit" value="Delete" placeholder="Reserve"/>
+                    }
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>

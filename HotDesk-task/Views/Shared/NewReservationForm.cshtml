@@ -1,0 +1,54 @@
+﻿@model NewReservationFormViewModel
+@{
+    ViewData["Title"] = "New reservation";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+
+    <div class="text-center">
+        @using (Html.BeginForm("UpdateReservationsList", "Reservation", FormMethod.Post))
+        {
+            <table class="table table-bordered table-responsive table-hover">
+                <tr>
+                    <th>Floor</th>
+                    <th>Room </th>
+                    <th>Table</th>
+                    <th>Equipment on the table</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Workplace.Floor)</td>
+                    <td>@Html.DisplayFor(model => model.Workplace.Room)</td>
+                    <td>@Html.DisplayFor(model => model.Workplace.TableNumber)</td>
+                    <td>
+                        @foreach (var equipment in Model.Workplace.EquipmentOnWorkplace)
+                        {
+                            @Html.DisplayFor(model => equipment.Key)
+                            @Html.DisplayFor(model => equipment.Value)
+                            <br>
+                        }
+                    </td>
+                </tr>
+            </table>
+            <div class="editor-field">
+                <input asp-for="TimeFrom" max="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+            </div>
+            <div class="editor-field">
+                <input asp-for="TimeTo" max="@DateTime.Now.AddDays(7).ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"/>
+            </div>
+            @Html.ValidationMessageFor(model => model.TimeTo)
+            <div>
+                <input type="text" value="@Model.Workplace.WorkplaceId" name="WorkplaceId" hidden>
+                <input type="submit" placeholder="Reserve"/>
+            </div>
+        }
+    </div>
+</div>
+</body>
+</html>
